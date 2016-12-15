@@ -1,0 +1,19 @@
+{
+  "name": "soccer-game-and-time-manager",
+  "version": "1.0.0",
+  "description": "Youth-Soccer-Game-Time-Manager",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonpberry/Youth-Soccer-Game-Time-Manager.git"
+  },
+  "author": "Jason P. Berry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasonpberry/Youth-Soccer-Game-Time-Manager/issues"
+  },
+  "homepage": "https://github.com/jasonpberry/Youth-Soccer-Game-Time-Manager#readme"
+}

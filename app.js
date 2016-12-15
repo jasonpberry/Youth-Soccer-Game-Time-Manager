@@ -1,5 +1,5 @@
 var http = require('http');
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World from Cloud9 - [edit]\n');
+  res.end('Hello World from Cloud9 - EDIT - package.json created\n');
 }).listen(process.env.PORT);
