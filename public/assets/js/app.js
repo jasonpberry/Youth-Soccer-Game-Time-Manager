@@ -25,8 +25,9 @@
 
                 for (var i = 0; i < 12; i++) {
                     var player = {
-                        fullName: 'Player ' + (i + 1),
-                        jerseyNumber: i + 1,
+                        id: i,
+                        fullName: 'Player ' + i,
+                        jerseyNumber: i,
                         isActive: !isActive,
                         onField: false
                     }
@@ -43,38 +44,61 @@
 
             init: function() {
                 this.players = util.dataStore();
+                this.bind();
                 this.renderTabs();
             },
             bind: function() {
-
+                console.log('bind things');
+                $('#tabs').on('click', '.toggle-player', this.togglePlayer.bind(this));
             },
+            togglePlayer: function(e) {
+                var playerIndex = this.getPlayerIndexFromEl(e.target);
+                
+                this.players[playerIndex].isActive = !this.players[playerIndex].isActive;
+                console.log(this.players);
+                this.renderTabs();
+            },
+            getPlayerIndexFromEl: function(el) {
+                var clickedPlayerId = $(el).closest('li').data('id'); 
+                console.log(clickedPlayerId);
+                var players = this.players;
+                var i = players.length;
+                var playerId;
+                
+                while(i--) {
+                    playerId = 'player-' + players[i].id;
+                    if(playerId === clickedPlayerId) {
+                        return i;
+                    }
+                }
+                // return playerIndex;
+            },
+            
             renderTabs: function() {
-                var allPlayersHtml = $('#div-all-players');
-                var activePlayersHtml = $('#div-active-players');
-                var inactivePlayersHtml = $('#div-inactive-players');
+                var allPlayersDiv = $('#div-all-players').html(''),
+                    activePlayersDiv = $('#div-active-players').html(''),
+                    inactivePlayersDiv = $('#div-inactive-players').html('');
+                    
                 this.players.forEach(function(player) {
                     
                     if(player.isActive) {
-                        allPlayersHtml.append('<li>( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( ' + (player.isActive ? 'Active' : 'Inactive') + ' )</li>');                                                
-                        activePlayersHtml.append('<li>( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( ' + (player.isActive ? 'Active' : 'Inactive') + ' )</li>');                        
+                        allPlayersDiv.append('<li data-id="player-' + player.jerseyNumber + '">( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( <span class="toggle-player">' + (player.isActive ? 'Active' : 'Inactive') + '</span> )</li>');                                                
+                        activePlayersDiv.append('<li data-id="player-' + player.jerseyNumber + '">( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( <span class="toggle-player">' + (player.isActive ? 'Active' : 'Inactive') + ' )</span></li>');                        
                     } else if(!player.isActive) {
-                        allPlayersHtml.append('<li>( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( ' + (player.isActive ? 'Active' : 'Inactive') + ' )</li>');                                                
-                        inactivePlayersHtml.append('<li>( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( ' + (player.isActive ? 'Active' : 'Inactive') + ' )</li>');                                                
+                        allPlayersDiv.append('<li data-id="player-' + player.jerseyNumber + '">( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( <span class="toggle-player">' + (player.isActive ? 'Active' : 'Inactive') + '</span> )</li>');                                                
+                        inactivePlayersDiv.append('<li data-id="player-' + player.jerseyNumber + '">( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( <span class="toggle-player">' + (player.isActive ? 'Active' : 'Inactive') + ' )</span></li>');                                                
                     } 
-                    
                 });
-                
             }
         };
-
         App.init();
     });
 
 
-    $('body')
-    .on('mouseover', "#tabs a", function(e) {
-        console.log('hovered');
-        console.log($(this));
-    });
+    // $('body')
+    // .on('mouseover', "#tabs a", function(e) {
+    //     console.log('hovered');
+    //     console.log($(this));
+    // });
 
 })(jQuery);
