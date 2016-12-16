@@ -49,10 +49,18 @@
 
             },
             renderTabs: function() {
-                var allPlayerHtml = $('#div-all-players');
-                var activePlayers = $('#div-active-players');
+                var allPlayersHtml = $('#div-all-players');
+                var activePlayersHtml = $('#div-active-players');
+                var inactivePlayersHtml = $('#div-inactive-players');
                 this.players.forEach(function(player) {
-                    allPlayerHtml.append('<li>( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( ' + (player.isActive ? 'Active' : 'Inactive') + ' )</li>');
+                    
+                    if(player.isActive) {
+                        allPlayersHtml.append('<li>( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( ' + (player.isActive ? 'Active' : 'Inactive') + ' )</li>');                                                
+                        activePlayersHtml.append('<li>( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( ' + (player.isActive ? 'Active' : 'Inactive') + ' )</li>');                        
+                    } else if(!player.isActive) {
+                        allPlayersHtml.append('<li>( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( ' + (player.isActive ? 'Active' : 'Inactive') + ' )</li>');                                                
+                        inactivePlayersHtml.append('<li>( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( ' + (player.isActive ? 'Active' : 'Inactive') + ' )</li>');                                                
+                    } 
                     
                 });
                 
