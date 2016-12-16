@@ -1,0 +1,30 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 600px;
+  margin: 0 auto;
+}
+
+a {
+  color: #00B7FF;
+}
+
+ol {
+  margin-left: 0; 
+  padding-left: 15px;
+  
+}
+li {
+  padding: 0 0 10px 0;
+}
+
+#tabs {
+  min-height: 300px;
+  
+}
+ /*Remove all border radius settings */
+* {
+  border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+}
+
