@@ -77,18 +77,30 @@
             renderTabs: function() {
                 var allPlayersDiv = $('#div-all-players').html(''),
                     activePlayersDiv = $('#div-active-players').html(''),
-                    inactivePlayersDiv = $('#div-inactive-players').html('');
+                    inactivePlayersDiv = $('#div-inactive-players').html(''),
+                    allPlayersCountSpan = $('#span-all-players-count'),
+                    activePlayersCountSpan = $('#span-active-players-count'),
+                    inactivePlayersCountSpan = $('#span-inactive-players-count'),
+                    allPlayersCount = this.players.length,
+                    activePlayersCount = 0,
+                    inactivePlayersCount = 0;
                     
                 this.players.forEach(function(player) {
                     
                     if(player.isActive) {
                         allPlayersDiv.append('<li data-id="player-' + player.jerseyNumber + '">( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( <span class="toggle-player">' + (player.isActive ? 'Active' : 'Inactive') + '</span> )</li>');                                                
                         activePlayersDiv.append('<li data-id="player-' + player.jerseyNumber + '">( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( <span class="toggle-player">' + (player.isActive ? 'Active' : 'Inactive') + ' )</span></li>');                        
+                        activePlayersCount++;
                     } else if(!player.isActive) {
                         allPlayersDiv.append('<li data-id="player-' + player.jerseyNumber + '">( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( <span class="toggle-player">' + (player.isActive ? 'Active' : 'Inactive') + '</span> )</li>');                                                
                         inactivePlayersDiv.append('<li data-id="player-' + player.jerseyNumber + '">( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( <span class="toggle-player">' + (player.isActive ? 'Active' : 'Inactive') + ' )</span></li>');                                                
+                        inactivePlayersCount++;
                     } 
                 });
+
+                allPlayersCountSpan.html(allPlayersCount);
+                activePlayersCountSpan.html(activePlayersCount);
+                inactivePlayersCountSpan.html(inactivePlayersCount);
             }
         };
         App.init();
