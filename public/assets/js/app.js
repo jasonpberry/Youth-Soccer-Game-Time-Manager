@@ -78,9 +78,9 @@
                 var allPlayersDiv = $('#div-all-players').html(''),
                     activePlayersDiv = $('#div-active-players').html(''),
                     inactivePlayersDiv = $('#div-inactive-players').html(''),
-                    allPlayersCountSpan = $('#span-all-players-count'),
-                    activePlayersCountSpan = $('#span-active-players-count'),
-                    inactivePlayersCountSpan = $('#span-inactive-players-count'),
+                    allPlayersCountSpan = $('.span-all-players-count'),
+                    activePlayersCountSpan = $('.span-active-players-count'),
+                    inactivePlayersCountSpan = $('.span-inactive-players-count'),
                     allPlayersCount = this.players.length,
                     activePlayersCount = 0,
                     inactivePlayersCount = 0;
