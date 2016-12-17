@@ -31,10 +31,20 @@ li {
 .active-player-error {
   display: none;
 }
+.inactive-player-notification {
+  display: none;
+}
 
 .error {
   border: 1px solid #eee;
   background: red;
+  color: #fff;
+  padding: 10px;
+}
+
+.success {
+  border: 1px solid #eee;
+  background: green;
   color: #fff;
   padding: 10px;
 }

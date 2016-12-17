@@ -13,7 +13,7 @@
 
     <div id="tabs">
       <ul>
-        <li><a href="#tabs-all-players"><span id="span-all-players-count"></span> Players</a></li>
+        <li><a href="#tabs-all-players"><span id="span-all-players-count"></span> Players Total</a></li>
         <li><a href="#tabs-active-players"><span id="span-active-players-count"></span> Active Players</a></li>
         <li><a href="#tabs-inactive-players"><span id="span-inactive-players-count"></span> Inactive Players</a></li>
         <li><a href="#tabs-4">Game Time!</a></li>
@@ -21,8 +21,16 @@
       <div id="tabs-all-players">
 
         <h1>All Players</h1>
+
+        <div class="active-player-error">
+            <p class="error">You have no active players!</p>
+        </div>
+
+        <div class="inactive-player-notification">
+            <p class="success">Everyone is here!  Congrats!</p>
+        </div>
+
         <ol id="div-all-players"></ol>
-          
       </div>
       <div id="tabs-active-players">
 
@@ -40,6 +48,11 @@
 
         <h1>Inactive Players</h1>
         <ol id="div-inactive-players"></ol>
+
+        <div class="inactive-player-notification">
+            <p class="success">Everyone is here!  Congrats!</p>
+        </div>
+
 
       </div>
       <div id="tabs-4">

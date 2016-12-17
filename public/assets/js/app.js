@@ -103,6 +103,15 @@
                 } else {
                     $('.active-player-error').css('display','none');                    
                 }
+                
+
+                if(inactivePlayersCount === 0) {
+                    $('.inactive-player-notification').css('display','block');
+                } else {
+                    $('.inactive-player-notification').css('display','none');                    
+                }
+                
+                
                 allPlayersCountSpan.html(allPlayersCount);
                 activePlayersCountSpan.html(activePlayersCount);
                 inactivePlayersCountSpan.html(inactivePlayersCount);
