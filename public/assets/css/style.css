@@ -15,7 +15,14 @@ ol {
   
 }
 li {
-  padding: 0 0 10px 0;
+  padding: 10px 10px 10px 10px;
+  margin: 0 0 10px 0;
+  background: #eee;
+  border-color: #ddd;
+}
+
+.toggle-player {
+  cursor: pointer;
 }
 
 #tabs {
