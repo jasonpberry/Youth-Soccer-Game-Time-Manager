@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   width: 700px;
   margin: 0 auto;
@@ -27,8 +26,20 @@ li {
 
 #tabs {
   min-height: 300px;
-  
 }
+
+.active-player-error {
+  display: none;
+}
+
+.error {
+  border: 1px solid #eee;
+  background: red;
+  color: #fff;
+  padding: 10px;
+}
+
+
  /*Remove all border radius settings */
 * {
   border-radius: 0 !important;

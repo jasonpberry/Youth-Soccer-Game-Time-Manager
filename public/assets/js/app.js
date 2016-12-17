@@ -95,12 +95,19 @@
                         allPlayersDiv.append('<li data-id="player-' + player.jerseyNumber + '">( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( <span class="toggle-player">' + (player.isActive ? 'Active' : 'Inactive') + '</span> )</li>');                                                
                         inactivePlayersDiv.append('<li data-id="player-' + player.jerseyNumber + '">( Jersey #' + player.jerseyNumber + ' ) - ' + player.fullName + ' - ( <span class="toggle-player">' + (player.isActive ? 'Active' : 'Inactive') + ' )</span></li>');                                                
                         inactivePlayersCount++;
-                    } 
+                                            } 
                 });
 
+                if(activePlayersCount === 0) {
+                    $('.active-player-error').css('display','block');
+                } else {
+                    $('.active-player-error').css('display','none');                    
+                }
                 allPlayersCountSpan.html(allPlayersCount);
                 activePlayersCountSpan.html(activePlayersCount);
                 inactivePlayersCountSpan.html(inactivePlayersCount);
+    
+    
             }
         };
         App.init();
