@@ -23,7 +23,7 @@
                 var isActive = false;
                 var players = []; // blank array
 
-                for (var i = 0; i < 12; i++) {
+                for (var i = 0; i < 10; i++) {
                     var player = {
                         id: i,
                         fullName: 'Player ' + i,
