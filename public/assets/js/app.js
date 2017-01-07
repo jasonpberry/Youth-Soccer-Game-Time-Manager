@@ -43,6 +43,7 @@
         var App = {
 
             init: function() {
+                debugger
                 this.players = util.dataStore();
                 this.bind();
                 this.renderTabs();
